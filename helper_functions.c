@@ -11,6 +11,7 @@
  */
 stack_t *push_to_stack(stack_t **head, const int n)
 {
+	// int number_nodes;
 	stack_t *new;
 	stack_t *h = *head; /* adddress of the head node now h */
 
@@ -21,6 +22,9 @@ stack_t *push_to_stack(stack_t **head, const int n)
 	}
 	new->n = n;
 	new->prev = NULL;
+
+	/** increment number of nodes*/
+	number_nodes = number_nodes + 1;
 
 	if (h != NULL)
 	{
@@ -92,6 +96,7 @@ void print_top(const stack_t *h)
  */
 int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 {
+	// int number_nodes;
 	stack_t *head_1;
 	stack_t *head_2;
 	unsigned int i;
@@ -123,6 +128,8 @@ int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 			}
 
 			free(head_1);
+			/** decrement of number of node*/
+			number_nodes = number_nodes - 1;
 			return (1);
 		}
 		head_2 = head_1;

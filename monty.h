@@ -2,6 +2,9 @@
 #define _monty_h
 
 
+
+extern int number_nodes;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -40,7 +43,7 @@ stack_t *push_to_stack(stack_t **head, const int n);
 void print_stack(const stack_t *h);
 void print_top(const stack_t *h);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
-
+stack_t *insert_to_idx_1(stack_t **h, unsigned int idx, int n);
 
 
 

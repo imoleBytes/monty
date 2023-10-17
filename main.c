@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int number_nodes = 0;
 
 int main(void)
 {
@@ -12,9 +13,10 @@ int main(void)
 
 	while(1)
 	{
+		printf("There are %d nodes now in the stack!\n", number_nodes);
 
 		// printf("Select Choices\n\n");
-		printf("1. push to stack\n2. Print first node\n3. delete top\n4. list the stack\n5. exit\n");
+		printf("1. push to stack\n2. Print first node\n3. delete top\n4. list the stack\n5. swap\n6. exit\n");
 		printf("Select Choice: ");
 		scanf("%d", &choice);
 
@@ -40,7 +42,16 @@ int main(void)
 			case 4:
 				print_stack(stack);
 				break;
-			case 5:				
+			case 5:
+				if (number_nodes < 2)
+				{
+					printf("L<line_number>: can't swap, stack too short\n");
+					exit(EXIT_FAILURE);
+				}
+				else
+					swap_nodes(&stack);
+				break;
+			case 6:				
 				printf("Exited!\n");
 				exit(98);
 			default:
@@ -50,3 +61,11 @@ int main(void)
 
 	return (0);
 }
+
+
+
+// tto swap
+// check the len of node, if 2 or morre:
+	// delete top
+	// insert to index 1
+// else, print cannot swap, too short.
