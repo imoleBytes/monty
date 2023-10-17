@@ -10,6 +10,7 @@ void swap_nodes(stack_t **h)
 {
 	stack_t *head = *h;
 	int n = head->n;
+
 	delete_dnodeint_at_index(h, 0);
-	stack_t *insert_to_idx_1(h, 1, n);
+	insert_to_idx_1(h, 1, n);
 }

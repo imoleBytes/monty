@@ -44,6 +44,8 @@ void print_stack(const stack_t *h);
 void print_top(const stack_t *h);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 stack_t *insert_to_idx_1(stack_t **h, unsigned int idx, int n);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+void swap_nodes(stack_t **h);
 
 
 

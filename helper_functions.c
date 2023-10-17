@@ -23,6 +23,7 @@ stack_t *push_to_stack(stack_t **head, const int n)
 	new->n = n;
 	new->prev = NULL;
 
+
 	/** increment number of nodes*/
 	number_nodes = number_nodes + 1;
 

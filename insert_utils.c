@@ -40,7 +40,7 @@ stack_t *insert_to_idx_1(stack_t **h, unsigned int idx, int n)
 	new = malloc(sizeof(stack_t));
 	if (*h == NULL && idx == 0)
 	{
-		new = add_dnodeint(h, n);
+		new = push_to_stack(h, n);
 		return (new);
 	}
 	if (new == NULL)
@@ -50,14 +50,16 @@ stack_t *insert_to_idx_1(stack_t **h, unsigned int idx, int n)
 
 	if (idx == 0)
 	{
-		new = add_dnodeint(h, n);
+		new = push_to_stack(h, n);
 		return (new);
 	}
+	
 	if (idx == dlistint_len(*h))
 	{
 		new = add_dnodeint_end(h, n);
 		return (new);
 	}
+	
 	while (head != NULL)
 	{
 		if (i == idx)
@@ -67,6 +69,7 @@ stack_t *insert_to_idx_1(stack_t **h, unsigned int idx, int n)
 			head->prev->next = new;
 			new->next = head;
 			head->prev = new;
+			number_nodes++;
 			return (new);
 		}
 		i++;
