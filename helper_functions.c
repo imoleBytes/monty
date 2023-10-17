@@ -52,14 +52,83 @@ void print_stack(const stack_t *h)
 {
 	// size_t count = 0;
 	if (h == NULL)
-		printf("empty stack\n");
-
+		printf("====> Empty stack <======\n");
 	while (h != NULL)
 	{
 		printf("%d\n", h->n);
 		// count++;
 		h = h->next;
-
 	}
 	// return (count);
+}
+
+
+
+/**
+* print_top - func to print data of a double linked list
+* @h: pointer to head of node
+*
+* Return: number of nodes in the list
+*/
+void print_top(const stack_t *h)
+{
+	// size_t count = 0;
+	if (h == NULL)
+	{
+		printf("L<line_number>: can't pint, stack empty\n");
+		exit(1);
+	}
+	printf("%d\n", h->n);
+}
+
+
+
+/**
+ * delete_dnodeint_at_index - deletes node at index of a double linked list
+ *
+ * @head: double pointer to head of the list
+ * @index: index of the node to be deleted
+ * Return: 1 if it succeeded, -1 if it failed
+ */
+int delete_dnodeint_at_index(stack_t **head, unsigned int index)
+{
+	stack_t *head_1;
+	stack_t *head_2;
+	unsigned int i;
+
+	head_1 = *head;
+
+	if (head_1 != NULL)
+		while (head_1->prev != NULL)
+			head_1 = head_1->prev;
+
+	i = 0;
+
+	while (head_1 != NULL)
+	{
+		if (i == index)
+		{
+			if (i == 0)
+			{
+				*head = head_1->next;
+				if (*head != NULL)
+					(*head)->prev = NULL;
+			}
+			else
+			{
+				head_2->next = head_1->next;
+
+				if (head_1->next != NULL)
+					head_1->next->prev = head_2;
+			}
+
+			free(head_1);
+			return (1);
+		}
+		head_2 = head_1;
+		head_1 = head_1->next;
+		i++;
+	}
+
+	return (-1);
 }

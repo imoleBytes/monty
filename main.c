@@ -14,7 +14,7 @@ int main(void)
 	{
 
 		// printf("Select Choices\n\n");
-		printf("1. push to stack\n2. delete top\n3. list the stack\n4. exit\n");
+		printf("1. push to stack\n2. Print first node\n3. delete top\n4. list the stack\n5. exit\n");
 		printf("Select Choice: ");
 		scanf("%d", &choice);
 
@@ -27,16 +27,25 @@ int main(void)
 				push_to_stack(&stack, data);
 				break;
 			case 2:
+				print_top(stack);
+				break;
 			case 3:
+				printf("delete top of stack\n");
+				if (delete_dnodeint_at_index(&stack, 0) == -1)
+				{
+					printf("L<line_number>: can't pop an empty stack\n");
+					exit(EXIT_FAILURE);
+				}
+				break;
+			case 4:
 				print_stack(stack);
 				break;
-			case 4:				
+			case 5:				
 				printf("Exited!\n");
 				exit(98);
 			default:
 				printf("Invalid choice\n");
 		}
-
 	}
 
 	return (0);
