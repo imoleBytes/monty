@@ -107,6 +107,54 @@ int main(int ac, char **av)
 				add_func(&stack);
 			}
 		}
+		else if (strcmp(input, "sub") == 0)
+		{
+			if (number_nodes < 2)
+			{
+				fprintf(stderr, "L%u: can't sub, stack too short\n", line_no);
+				exit(EXIT_FAILURE);
+			}
+			else
+			{
+				sub_func(&stack);
+			}
+		}
+		else if (strcmp(input, "div") == 0)
+		{
+			if (number_nodes < 2)
+			{
+				fprintf(stderr, "L%u: can't div, stack too short\n", line_no);
+				exit(EXIT_FAILURE);
+			}
+			else
+			{
+				div_func(&stack);
+			}
+		}
+		else if (strcmp(input, "mul") == 0)
+		{
+			if (number_nodes < 2)
+			{
+				fprintf(stderr, "L%u: can't mul, stack too short\n", line_no);
+				exit(EXIT_FAILURE);
+			}
+			else
+			{
+				mul_func(&stack);
+			}
+		}
+		else if (strcmp(input, "mod") == 0)
+		{
+			if (number_nodes < 2)
+			{
+				fprintf(stderr, "L%u: can't mod, stack too short\n", line_no);
+				exit(EXIT_FAILURE);
+			}
+			else
+			{
+				mod_func(&stack);
+			}
+		}
 		else if (strcmp(input, "nop") == 0 || strcmp(input, "#") == 0 \
 						|| (input[0] == '#'))
 		{

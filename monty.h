@@ -48,6 +48,9 @@ stack_t *insert_to_idx_1(stack_t **h, unsigned int idx, int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 void swap_nodes(stack_t **h);
 void add_func(stack_t **h);
-
+void sub_func(stack_t **h);
+void div_func(stack_t **h);
+void mul_func(stack_t **h);
+void mod_func(stack_t **h);
 
 #endif
