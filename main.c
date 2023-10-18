@@ -89,8 +89,8 @@ int main(int ac, char **av)
 				{
 					add_func(&stack);
 				}
-		} else if (strcmp(input, "nop") == 0 || strcmp(input, "#") == 0) {
-			;
+		} else if (strcmp(input, "nop") == 0 || strcmp(input, "#") == 0 || (input[0] == '#')) {
+			
 		}  else {
 			/** Code for other cases */
 			fprintf(stderr,"L%u: unknown instruction %s\n", line_no, input);
