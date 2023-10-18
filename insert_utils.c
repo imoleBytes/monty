@@ -53,13 +53,13 @@ stack_t *insert_to_idx_1(stack_t **h, unsigned int idx, int n)
 		new = push_to_stack(h, n);
 		return (new);
 	}
-	
+
 	if (idx == dlistint_len(*h))
 	{
 		new = add_dnodeint_end(h, n);
 		return (new);
 	}
-	
+
 	while (head != NULL)
 	{
 		if (i == idx)

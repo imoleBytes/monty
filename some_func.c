@@ -1,10 +1,9 @@
 #include "monty.h"
 
-/* tto swap
- check the len of node, if 2 or morre:
-	 delete top
-	 insert to index 1
- else, print cannot swap, too short.
+/**
+* swap_nodes - func swaps.
+* @h: double pointer to the head of stack
+*
 */
 
 void swap_nodes(stack_t **h)
@@ -16,6 +15,12 @@ void swap_nodes(stack_t **h)
 	insert_to_idx_1(h, 1, n);
 }
 
+
+/**
+* add_func - func add top 2 ittems.
+* @h: double pointer to the head of stack
+*
+*/
 void add_func(stack_t **h)
 {
 	stack_t *head = *h;
@@ -25,5 +30,5 @@ void add_func(stack_t **h)
 
 	delete_dnodeint_at_index(h, 0);
 	delete_dnodeint_at_index(h, 0);
-	push_to_stack(h, n);	
+	push_to_stack(h, n);
 }

@@ -6,6 +6,15 @@
 int number_nodes = 0;
 unsigned int line_no = 0;
 
+
+/**
+* main - program starts here
+* @ac: arg count
+* @av: args list
+*
+* Return: 0
+*/
+
 int main(int ac, char **av)
 {
 	stack_t *stack;
@@ -35,19 +44,17 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
-	
-
-
 	while (fgets(buff, 255, fd) != NULL)
 	{
 		line_no++;
 
 		if (buff[0] == '\n' || buff[0] == '\0')
 			continue;
-		
+
 		input = strtok(buff, " \t\r\n");
-		
-		if (strcmp(input, "push") == 0) {
+
+		if (strcmp(input, "push") == 0)
+		{
 			sec_item = strtok(NULL, " \t\r\n");
 			if (sec_item)
 			{
@@ -60,44 +67,57 @@ int main(int ac, char **av)
 			}
 
 			push_to_stack(&stack, data);
-			
-		} else if (strcmp(input, "pop") == 0) {
+
+		}
+		else if (strcmp(input, "pop") == 0)
+		{
 			if (delete_dnodeint_at_index(&stack, 0) == -1)
-				{
-					fprintf(stderr, "L%u: can't pop an empty stack\n", line_no);
-					exit(EXIT_FAILURE);
-				}
-		}else if (strcmp(input, "pint") == 0) {
+			{
+				fprintf(stderr, "L%u: can't pop an empty stack\n", line_no);
+				exit(EXIT_FAILURE);
+			}
+		}
+		else if (strcmp(input, "pint") == 0)
+		{
 			print_top(stack);
-		}else if (strcmp(input, "pall") == 0) {
+		}
+		else if (strcmp(input, "pall") == 0)
+		{
 			print_stack(stack);
-		}else if (strcmp(input, "swap") == 0) {
+		}
+		else if (strcmp(input, "swap") == 0)
+		{
 			if (number_nodes < 2)
-				{
-					fprintf(stderr, "L%u: can't swap, stack too short\n", line_no);
-					exit(EXIT_FAILURE);
-				}
-				else
-					swap_nodes(&stack);
-		} else if (strcmp(input, "add") == 0) {
+			{
+				fprintf(stderr, "L%u: can't swap, stack too short\n", line_no);
+				exit(EXIT_FAILURE);
+			}
+			else
+				swap_nodes(&stack);
+		}
+		else if (strcmp(input, "add") == 0)
+		{
 			if (number_nodes < 2)
-				{
-					fprintf(stderr, "L%u: can't add, stack too short\n", line_no);
-					exit(EXIT_FAILURE);
-				}
-				else
-				{
-					add_func(&stack);
-				}
-		} else if (strcmp(input, "nop") == 0 || strcmp(input, "#") == 0 || (input[0] == '#')) {
-			
-		}  else {
+			{
+				fprintf(stderr, "L%u: can't add, stack too short\n", line_no);
+				exit(EXIT_FAILURE);
+			}
+			else
+			{
+				add_func(&stack);
+			}
+		}
+		else if (strcmp(input, "nop") == 0 || strcmp(input, "#") == 0 \
+						|| (input[0] == '#'))
+		{
+			;
+		}
+		else
+		{
 			/** Code for other cases */
-			fprintf(stderr,"L%u: unknown instruction %s\n", line_no, input);
+			fprintf(stderr, "L%u: unknown instruction %s\n", line_no, input);
 			exit(EXIT_FAILURE);
 		}
-
-	
 	}
 
 	fclose(fd);
