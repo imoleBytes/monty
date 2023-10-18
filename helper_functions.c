@@ -11,14 +11,14 @@
  */
 stack_t *push_to_stack(stack_t **head, const int n)
 {
-	// int number_nodes;
 	stack_t *new;
 	stack_t *h = *head; /* adddress of the head node now h */
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		return (NULL);
+		fprintf(stderr,"Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
 	new->n = n;
 	new->prev = NULL;
@@ -55,16 +55,15 @@ stack_t *push_to_stack(stack_t **head, const int n)
 */
 void print_stack(const stack_t *h)
 {
-	// size_t count = 0;
 	if (h == NULL)
-		printf("====> Empty stack <======\n");
+	{
+		; /** printf("====> Empty stack <======\n");*/
+	}
 	while (h != NULL)
 	{
 		printf("%d\n", h->n);
-		// count++;
 		h = h->next;
 	}
-	// return (count);
 }
 
 
@@ -77,10 +76,9 @@ void print_stack(const stack_t *h)
 */
 void print_top(const stack_t *h)
 {
-	// size_t count = 0;
 	if (h == NULL)
 	{
-		printf("L<line_number>: can't pint, stack empty\n");
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_no);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", h->n);
@@ -97,7 +95,6 @@ void print_top(const stack_t *h)
  */
 int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 {
-	// int number_nodes;
 	stack_t *head_1;
 	stack_t *head_2;
 	unsigned int i;

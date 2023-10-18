@@ -4,6 +4,7 @@
 
 
 extern int number_nodes;
+extern unsigned int line_no;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -38,7 +39,7 @@ typedef struct instruction_s
 
 
 
-// helper functions
+/** helper functions  */
 stack_t *push_to_stack(stack_t **head, const int n);
 void print_stack(const stack_t *h);
 void print_top(const stack_t *h);

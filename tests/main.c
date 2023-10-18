@@ -8,6 +8,13 @@ int main(void)
 	char **args;
 	unsigned int line_no = 0;
 
+
+
+	char *check = NULL;
+
+	printf("%p\n", check);
+	exit(654);
+
 	FILE *fd = fopen("some_text.txt", "r");
 
 	if (fd != NULL)
@@ -18,7 +25,12 @@ int main(void)
 		{
 			line_no++;
 
+			// printf("line %u: Len of %s is %lu\n", line_no, buff, strlen(buff));
+			// exit(12);
+
 			args[0] = strtok(buff, " ");
+
+
 			args[1] = strtok(NULL, " ");
 
 			// printf("line %u: args[0] is %s\n", line_no, args[0]);
@@ -26,7 +38,7 @@ int main(void)
 
 			// printf("line %u: %s\n", line_no, buff);
 			// printf("line %u: %s\n", line_no, buff);
-			
+			/*
 			switch (*args[0])
 			{
 				case "push":
@@ -56,6 +68,7 @@ int main(void)
 				default:
 					printf("Invalid choice\n");
 			}
+			*/
 		
 			// printf("%s\n",strtok(buff, " "));
 			// printf("%s\n",strtok(NULL, " "));
