@@ -16,7 +16,7 @@ int main(void)
 		printf("There are %d nodes now in the stack!\n", number_nodes);
 
 		// printf("Select Choices\n\n");
-		printf("1. push to stack\n2. Print first node\n3. delete top\n4. list the stack\n5. swap\n6. exit\n");
+		printf("1. push to stack\n2. Print first node\n3. delete top\n4. list the stack\n5. swap\n6. Add first 2 nodes\n7. nop\n8. exit\n");
 		printf("Select Choice: ");
 		scanf("%d", &choice);
 
@@ -51,7 +51,20 @@ int main(void)
 				else
 					swap_nodes(&stack);
 				break;
-			case 6:				
+			case 6:
+				if (number_nodes < 2)
+				{
+					printf("L<line_number>: can't add, stack too short\n");
+					exit(EXIT_FAILURE);
+				}
+				else
+				{
+					add_func(&stack);
+					break;
+				}
+			case 7:
+				break;				
+			case 8:				
 				printf("Exited!\n");
 				exit(98);
 			default:

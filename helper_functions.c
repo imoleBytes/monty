@@ -81,7 +81,7 @@ void print_top(const stack_t *h)
 	if (h == NULL)
 	{
 		printf("L<line_number>: can't pint, stack empty\n");
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", h->n);
 }
