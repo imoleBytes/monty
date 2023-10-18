@@ -56,6 +56,7 @@ int main(void)
 			print_top(stack);
 		}else if (strcmp(input, "pall") == 0) {
 			print_stack(stack);
+			printf("%ld\n", strlen(input));
 		}else if (strcmp(input, "swap") == 0) {
 			if (number_nodes < 2)
 				{
@@ -79,6 +80,7 @@ int main(void)
 		}  else {
 			// Code for other cases
 			printf("Unknown operation (%s) on this line : %u\n", input, line_no);
+			printf("%ld\n", strlen(input));
 			exit(EXIT_FAILURE);
 		}
 
