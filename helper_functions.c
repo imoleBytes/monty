@@ -50,8 +50,6 @@ stack_t *push_to_stack(stack_t **head, const int n)
 /**
 * print_stack - func to print data of a double linked list
 * @h: pointer to head of node
-*
-* Return: number of nodes in the list
 */
 void print_stack(const stack_t *h)
 {
@@ -65,6 +63,27 @@ void print_stack(const stack_t *h)
 		h = h->next;
 	}
 }
+
+
+
+
+/**
+* print_str - func to print string from a double linked list
+* @h: pointer to head of node
+*/
+void print_str(const stack_t *h)
+{
+	while (h != NULL)
+	{
+		if (h->n <= 0 || h->n > 127)
+			break;
+		putchar(h->n);
+		h = h->next;
+	}
+}
+
+
+
 
 
 

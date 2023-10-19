@@ -42,6 +42,7 @@ typedef struct instruction_s
 /** helper functions  */
 stack_t *push_to_stack(stack_t **head, const int n);
 void print_stack(const stack_t *h);
+void print_str(const stack_t *h);
 void print_top(const stack_t *h);
 void print_top_char(const stack_t *h);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);

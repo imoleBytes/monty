@@ -89,6 +89,16 @@ int main(int ac, char **av)
 		{
 			print_stack(stack);
 		}
+		else if (strcmp(input, "pstr") == 0)
+		{
+			if (stack == NULL)
+			{
+				;
+			}
+			else
+				print_str(stack);
+			printf("\n");
+		}
 		else if (strcmp(input, "swap") == 0)
 		{
 			if (number_nodes < 2)
