@@ -86,6 +86,41 @@ void print_top(const stack_t *h)
 
 
 
+
+
+/**
+* print_top_char - func to print the char at the top of a double linked list
+* @h: pointer to head of node
+*
+* Return: number of nodes in the list
+*/
+void print_top_char(const stack_t *h)
+{
+	int data;
+
+	if (h == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_no);
+		exit(EXIT_FAILURE);
+	}
+	data = h->n;
+
+	if (data > 127 || data < 0)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_no);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		putchar(data);
+		putchar('\n');
+	}
+
+}
+
+
+
+
 /**
  * delete_dnodeint_at_index - deletes node at index of a double linked list
  *

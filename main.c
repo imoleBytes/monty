@@ -81,6 +81,10 @@ int main(int ac, char **av)
 		{
 			print_top(stack);
 		}
+		else if (strcmp(input, "pchar") == 0)
+		{
+			print_top_char(stack);
+		}
 		else if (strcmp(input, "pall") == 0)
 		{
 			print_stack(stack);

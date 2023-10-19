@@ -89,7 +89,7 @@ void mul_func(stack_t **h)
 	stack_t *head = *h;
 	int n1, n2, n;
 
-	n1 = head->n;	
+	n1 = head->n;
 	n2 = head->next->n;
 	n = n2 * n1;
 
@@ -110,7 +110,7 @@ void mod_func(stack_t **h)
 	stack_t *head = *h;
 	int n1, n2, n;
 
-	n1 = head->n;	
+	n1 = head->n;
 	n2 = head->next->n;
 	n = n2 % n1;
 
