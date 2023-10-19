@@ -46,19 +46,16 @@ stack_t *insert_to_idx_1(stack_t **h, unsigned int idx, int n)
 		return (NULL);
 	while (head->prev != NULL)
 		head = head->prev;
-
 	if (idx == 0)
 	{
 		new = push_to_stack(h, n);
 		return (new);
 	}
-
 	if (idx == dlistint_len(*h))
 	{
 		new = add_dnodeint_end(h, n);
 		return (new);
 	}
-
 	while (head != NULL)
 	{
 		if (i == idx)
@@ -101,7 +98,6 @@ void swap_nodes(stack_t **h)
 * rotl - func to rotate L data of a double linked list
 * @h: double pointer to head of node
 *
-* Return: number of nodes in the list
 */
 void rotl(stack_t **h)
 {
@@ -109,4 +105,28 @@ void rotl(stack_t **h)
 
 	delete_dnodeint_at_index(h, 0);
 	add_dnodeint_end(h, data);
+}
+
+
+
+/**
+* rotr - func to rotate r data of a double linked list
+* @h: double pointer to head of node
+*
+*/
+void rotr(stack_t **h)
+{
+	stack_t *head;
+	int data = (*h)->n;
+
+	head = *h;
+
+	while (head->next != NULL)
+	{
+		head = head->next;
+	}
+	data = head->n;
+
+	delete_dnodeint_at_index(h, number_nodes - 1);
+	push_to_stack(h, data);
 }

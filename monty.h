@@ -64,6 +64,6 @@ void div_func(stack_t **h);
 void mul_func(stack_t **h);
 void mod_func(stack_t **h);
 void rotl(stack_t **h);
-
+void rotr(stack_t **h);
 
 #endif

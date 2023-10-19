@@ -190,6 +190,15 @@ int main(int ac, char **av)
 			else
 				rotl(&stack);
 		}
+		else if (strcmp(input, "rotr") == 0)
+		{
+			if (!stack || number_nodes == 1)
+			{
+				;
+			}
+			else
+				rotr(&stack);
+		}
 		else
 		{
 			/** Code for other cases */
