@@ -1,21 +1,5 @@
 #include "monty.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-/**
-* swap_nodes - func swaps.
-* @h: double pointer to the head of stack
-*
-*/
-
-void swap_nodes(stack_t **h)
-{
-	stack_t *head = *h;
-	int n = head->n;
-
-	delete_dnodeint_at_index(h, 0);
-	insert_to_idx_1(h, 1, n);
-}
 
 
 /**

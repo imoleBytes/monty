@@ -1,7 +1,7 @@
 #include "monty.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+
+
+
 
 int number_nodes = 0;
 unsigned int line_no = 0;
@@ -33,7 +33,6 @@ int main(int ac, char **av)
 
 
 	stack = NULL;
-	file = "tests/some_text.txt";
 	file = av[1];
 
 	fd = fopen(file, "r");
@@ -63,6 +62,7 @@ int main(int ac, char **av)
 			else
 			{
 				fprintf(stderr, "L%u: usage: push integer\n", line_no);
+				fclose(fd);
 				exit(EXIT_FAILURE);
 			}
 
@@ -74,6 +74,7 @@ int main(int ac, char **av)
 			if (delete_dnodeint_at_index(&stack, 0) == -1)
 			{
 				fprintf(stderr, "L%u: can't pop an empty stack\n", line_no);
+				fclose(fd);
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -104,6 +105,7 @@ int main(int ac, char **av)
 			if (number_nodes < 2)
 			{
 				fprintf(stderr, "L%u: can't swap, stack too short\n", line_no);
+				fclose(fd);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -114,6 +116,7 @@ int main(int ac, char **av)
 			if (number_nodes < 2)
 			{
 				fprintf(stderr, "L%u: can't add, stack too short\n", line_no);
+				fclose(fd);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -126,6 +129,7 @@ int main(int ac, char **av)
 			if (number_nodes < 2)
 			{
 				fprintf(stderr, "L%u: can't sub, stack too short\n", line_no);
+				fclose(fd);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -138,6 +142,7 @@ int main(int ac, char **av)
 			if (number_nodes < 2)
 			{
 				fprintf(stderr, "L%u: can't div, stack too short\n", line_no);
+				fclose(fd);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -150,6 +155,7 @@ int main(int ac, char **av)
 			if (number_nodes < 2)
 			{
 				fprintf(stderr, "L%u: can't mul, stack too short\n", line_no);
+				fclose(fd);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -162,6 +168,7 @@ int main(int ac, char **av)
 			if (number_nodes < 2)
 			{
 				fprintf(stderr, "L%u: can't mod, stack too short\n", line_no);
+				fclose(fd);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -187,6 +194,7 @@ int main(int ac, char **av)
 		{
 			/** Code for other cases */
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_no, input);
+			fclose(fd);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -195,4 +203,3 @@ int main(int ac, char **av)
 
 	return (0);
 }
-

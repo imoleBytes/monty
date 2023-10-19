@@ -1,6 +1,4 @@
 #include "monty.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 
 /**
@@ -136,79 +134,3 @@ void print_top_char(const stack_t *h)
 	}
 
 }
-
-
-
-
-/**
- * delete_dnodeint_at_index - deletes node at index of a double linked list
- *
- * @head: double pointer to head of the list
- * @index: index of the node to be deleted
- * Return: 1 if it succeeded, -1 if it failed
- */
-int delete_dnodeint_at_index(stack_t **head, unsigned int index)
-{
-	stack_t *head_1;
-	stack_t *head_2;
-	unsigned int i;
-
-	head_1 = *head;
-
-	if (head_1 != NULL)
-		while (head_1->prev != NULL)
-			head_1 = head_1->prev;
-
-	i = 0;
-
-	while (head_1 != NULL)
-	{
-		if (i == index)
-		{
-			if (i == 0)
-			{
-				*head = head_1->next;
-				if (*head != NULL)
-					(*head)->prev = NULL;
-			}
-			else
-			{
-				head_2->next = head_1->next;
-
-				if (head_1->next != NULL)
-					head_1->next->prev = head_2;
-			}
-
-			free(head_1);
-			/** decrement of number of node*/
-			number_nodes = number_nodes - 1;
-			return (1);
-		}
-		head_2 = head_1;
-		head_1 = head_1->next;
-		i++;
-	}
-
-	return (-1);
-}
-
-
-
-
-
-
-/**
-* rotl - func to print data of a double linked list
-* @h: double pointer to head of node
-*
-* Return: number of nodes in the list
-*/
-void rotl(stack_t **h)
-{
-	int data = (*h)->n;
-
-	delete_dnodeint_at_index(h, 0);
-	add_dnodeint_end(h, data);
-}
-
-

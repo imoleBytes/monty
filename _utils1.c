@@ -1,5 +1,4 @@
 #include "monty.h"
-#include <stdlib.h>
 
 
 
@@ -76,4 +75,38 @@ stack_t *insert_to_idx_1(stack_t **h, unsigned int idx, int n)
 		head = head->next;
 	}
 	return (NULL);
+}
+
+
+/**
+* swap_nodes - func swaps.
+* @h: double pointer to the head of stack
+*
+*/
+
+void swap_nodes(stack_t **h)
+{
+	stack_t *head = *h;
+	int n = head->n;
+
+	delete_dnodeint_at_index(h, 0);
+	insert_to_idx_1(h, 1, n);
+}
+
+
+
+
+
+/**
+* rotl - func to rotate L data of a double linked list
+* @h: double pointer to head of node
+*
+* Return: number of nodes in the list
+*/
+void rotl(stack_t **h)
+{
+	int data = (*h)->n;
+
+	delete_dnodeint_at_index(h, 0);
+	add_dnodeint_end(h, data);
 }
