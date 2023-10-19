@@ -191,3 +191,24 @@ int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 
 	return (-1);
 }
+
+
+
+
+
+
+/**
+* rotl - func to print data of a double linked list
+* @h: double pointer to head of node
+*
+* Return: number of nodes in the list
+*/
+void rotl(stack_t **h)
+{
+	int data = (*h)->n;
+
+	delete_dnodeint_at_index(h, 0);
+	add_dnodeint_end(h, data);
+}
+
+

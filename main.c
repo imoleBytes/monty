@@ -174,6 +174,15 @@ int main(int ac, char **av)
 		{
 			;
 		}
+		else if (strcmp(input, "rotl") == 0)
+		{
+			if (!stack || number_nodes == 1)
+			{
+				;
+			}
+			else
+				rotl(&stack);
+		}
 		else
 		{
 			/** Code for other cases */
